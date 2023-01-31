@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Wave")]
-public class Wave : ScriptableObject
+public class Wave : MonoBehaviour
 {
+	[Header("Delay")]
 	[SerializeField]
 	[Tooltip("Minimum time in seconds between spawning enemies")]
 	[Min(0)]
@@ -52,11 +55,82 @@ public class Wave : ScriptableObject
 		}
 	}
 
-	public GameObject DecrementNextEnemy()
+	public enum Phase
 	{
-		var group = this.NextGroup;
-		if (group != null)
-			group.Quantity--;
-		return group?.Prefab;
+		Waiting,
+		Spawning,
+		Active,
+		Complete
+	}
+	private Phase _currentPhase = Phase.Waiting;
+
+	public Phase CurrentPhase 
+	{ 
+		get => this._currentPhase; 
+		private set
+		{
+			this._currentPhase = value;
+			switch (this.CurrentPhase)
+			{
+				case Phase.Spawning:
+					this.OnStartSpawn.Invoke();
+					break;
+				case Phase.Active:
+					this.OnEndSpawn.Invoke();
+					break;
+				case Phase.Complete:
+					this.OnComplete.Invoke();
+					break;
+			}
+		}
+	}
+
+	[SerializeField]
+	[Tooltip("The event invoked once this starts spawning enemies")]
+	private UnityEvent _onStartSpawn = new UnityEvent();
+
+	public UnityEvent OnStartSpawn { get => this._onStartSpawn; }
+
+	[SerializeField]
+	[Tooltip("The event invoked once all enemies have been spawned")]
+	private UnityEvent _onEndSpawn = new UnityEvent();
+
+	public UnityEvent OnEndSpawn { get => this._onEndSpawn; }
+
+	[SerializeField]
+	[Tooltip("The event invoked once all active enemies are knocked out")]
+	private UnityEvent _onComplete = new UnityEvent();
+
+	public UnityEvent OnComplete { get => this._onComplete; }
+
+	public HashSet<GameObject> ActiveEnemies { get; } = new HashSet<GameObject>();
+
+	private void EnemyDied(GameObject enemy)
+	{
+		this.ActiveEnemies.Remove(enemy);
+		if (this.CurrentPhase == Phase.Active && this.ActiveEnemies.Count < 1)
+			this.CurrentPhase = Phase.Complete;
+	}
+
+	private void SpawnEnemy(GameObject prefab, Vector3 location, Transform target)
+	{
+		Quaternion rotation = Quaternion.LookRotation(target.position - location);
+		GameObject enemy = UnityEngine.Object.Instantiate(prefab, location, rotation, this.transform);
+		this.ActiveEnemies.Add(enemy);
+		Persuer persuer = enemy.GetComponent<Persuer>();
+		persuer.Target = target;
+		persuer.OnKnockOut.AddListener(() => this.EnemyDied(enemy));
+	}
+
+	public IEnumerator Spawn(Transform target)
+	{
+		this.CurrentPhase = Phase.Spawning;
+		while (this.NextGroup != null)
+		{
+			this.SpawnEnemy(this.NextGroup.Prefab, GateManager.Instance.NextOpenGate.transform.position, target);
+			--this.NextGroup.Quantity;
+			yield return new WaitForSeconds(this.NextDelay);
+		}
+		this.CurrentPhase = Phase.Active;
 	}
 }
