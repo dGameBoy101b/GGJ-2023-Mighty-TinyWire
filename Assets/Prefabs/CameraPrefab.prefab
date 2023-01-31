@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2340698853182393630}
-  m_LocalRotation: {x: 0.23994567, y: 0.36955175, z: -0.09938875, w: 0.89217687}
-  m_LocalPosition: {x: -10.79, y: 9.2, z: -9.15}
+  m_LocalRotation: {x: 0.22302441, y: 0.37136588, z: -0.09237973, w: 0.8965565}
+  m_LocalPosition: {x: -42.9, y: 31, z: -40.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -98,8 +98,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2340698853201217290}
-  m_LocalRotation: {x: 0.23994567, y: 0.36955175, z: -0.09938875, w: 0.89217687}
-  m_LocalPosition: {x: -10.79, y: 9.2, z: -9.15}
+  m_LocalRotation: {x: 0.22302441, y: 0.37136588, z: -0.09237973, w: 0.8965565}
+  m_LocalPosition: {x: -42.9, y: 31, z: -40.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2340698854111173822}
   - component: {fileID: 2340698854111173819}
   - component: {fileID: 2340698854111173816}
-  - component: {fileID: 2340698854111173817}
+  - component: {fileID: 1226525887}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2340698854111173817
+--- !u!114 &1226525887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,10 +295,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0, y: 0, z: 0}
-  ShoulderOffset: {x: 10, y: 8.2, z: 0}
+  ShoulderOffset: {x: 40, y: 30, z: 0}
   VerticalArmLength: 0
   CameraSide: 0
-  CameraDistance: 10
+  CameraDistance: 40
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
