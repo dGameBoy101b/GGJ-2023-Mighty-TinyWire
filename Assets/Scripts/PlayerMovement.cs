@@ -19,6 +19,18 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+	[SerializeField]
+	[Tooltip("The speed at which the player rotates")]
+	private float _rotationSpeed;
+
+	public float RotationSpeed
+	{
+		get
+		{
+			return this._rotationSpeed;
+		}
+	}
+
     [SerializeField]
 	[Tooltip("The speed modifier for sprinting")]
 	private float _sprintMod;
@@ -44,7 +56,10 @@ public class PlayerMovement : MonoBehaviour
 	}
 
     [HideInInspector]
-	public bool isUsingWeapon;
+	public bool isSucking;
+
+	[HideInInspector]
+	public bool isShooting;
 
 	private bool isSprinting;
 
@@ -69,12 +84,32 @@ public class PlayerMovement : MonoBehaviour
 		isSprinting = context.ReadValue<float>() > 0;
     }
 
+	public void Look() //Manages the look & orientation information of the player (based on camera data)
+    {
+        if (!isSucking && !isShooting)
+		{
+			Vector3 input_dir = new Vector3(this.moveAxis.x, 0, this.moveAxis.y).normalized;
+			Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
+			if (this.moveAxis.x != 0 || this.moveAxis.y != 0)
+			{
+				this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
+			}
+		}
+		else
+		{
+			//rotation following mouse
+			//rotation following right stick
+		}
+		
+    }
+
     private void FixedUpdate()
     {
-        this.currentSpeed = this._speed * (isUsingWeapon ? WeaponUseMod : isSprinting ? SprintMod : 1f);
+        this.currentSpeed = this._speed * (isShooting || isSucking ? WeaponUseMod : isSprinting ? SprintMod : 1f);
         Vector3 movement = new Vector3(this.moveAxis.x, 0, this.moveAxis.y).normalized * this.currentSpeed * Time.deltaTime;
         Vector3 rotatedMovement = Quaternion.AngleAxis(45f, Vector3.up) * movement;
         this._rb.AddForce(rotatedMovement - this._rb.velocity, ForceMode.Impulse);
+		Look();
     }
 
 }
