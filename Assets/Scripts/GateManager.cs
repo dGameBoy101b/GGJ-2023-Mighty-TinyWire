@@ -9,7 +9,7 @@ public class GateManager : MonoBehaviour
 	[Tooltip("The gates enemies should spawn at")]
 	private List<Gate> _gates = new List<Gate>();
 
-	public IReadOnlyList<Gate> Gates { get { return this._gates; } }
+	public List<Gate> Gates { get { return this._gates; } }
 
 	private List<Gate> OpenGates = new List<Gate>();
 
@@ -19,6 +19,13 @@ public class GateManager : MonoBehaviour
 		{
 			return this.OpenGates.Count < 1 ? null : this.OpenGates[Random.Range(0, this.OpenGates.Count)];
 		}
+	}
+
+	private void FindAllGates()
+	{
+		foreach (var gate in Object.FindObjectsOfType<Gate>())
+			if (!this.Gates.Contains(gate))
+				this.Gates.Add(gate);
 	}
 
 	private void CreateGateListeners()
@@ -47,6 +54,7 @@ public class GateManager : MonoBehaviour
 
 	private void Start()
 	{
+		this.FindAllGates();
 		this.CreateGateListeners();
 	}
 }
