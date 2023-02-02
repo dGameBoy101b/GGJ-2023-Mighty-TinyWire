@@ -4,18 +4,28 @@ using UnityEngine.Events;
 public class PerimeterGate : MonoBehaviour
 {
 	[SerializeField]
-	[Tooltip("The event triggered when this is opened")]
+	[Tooltip("The event invoked when this is opened")]
 	private UnityEvent _onOpen = new UnityEvent();
 
 	public UnityEvent OnOpen { get => this._onOpen; }
 
-	public bool IsOpen { get; private set; } = false;
+	[SerializeField]
+	[Tooltip("The event invoked when this is closed")]
+	private UnityEvent _onClose = new UnityEvent();
 
-	public void Open()
+	public UnityEvent OnClose { get => this._onClose; }
+
+	private bool _isOpen = false;
+
+	public bool IsOpen 
 	{
-		if (this.IsOpen)
-			return;
-		this.IsOpen = true;
-		this.OnOpen.Invoke();
+		get => this._isOpen;
+		set
+		{
+			var old = this._isOpen;
+			this._isOpen = value;
+			if (old != value)
+				(value ? this.OnOpen : this.OnClose).Invoke();
+		}
 	}
 }
