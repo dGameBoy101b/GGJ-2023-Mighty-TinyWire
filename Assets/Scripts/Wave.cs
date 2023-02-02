@@ -96,6 +96,8 @@ public class Wave : MonoBehaviour
 
 	public int Quantity { get => this._quantity; set => Mathf.Max(0, value); }
 
+	public int QuantityRemaining { get; private set; }
+
 	[Tooltip("The time between spawning enemies")]
 	public RandomRange EnemyDelay;
 
@@ -119,12 +121,11 @@ public class Wave : MonoBehaviour
 
 	private void SpawnEnemy(Vector3 location)
 	{
-		if (this.Quantity < -1)
+		if (this.QuantityRemaining < 1)
 		{
 			Debug.LogWarning("Ran out of enemies to spawn");
 			return;
 		}
-		--this.Quantity;
 		Quaternion rotation = Quaternion.LookRotation(this.Target.position - location);
 		GameObject enemy = UnityEngine.Object.Instantiate(this.Prefab, location, rotation, this.transform);
 		this.ActiveEnemies.Add(enemy);
@@ -144,7 +145,7 @@ public class Wave : MonoBehaviour
 	private IEnumerator EnemyPhase()
 	{
 		this.CurrentPhase = Phase.SpawningEnemies;
-		while (this.Quantity > 0)
+		for (this.QuantityRemaining = this.Quantity; this.QuantityRemaining > 0; --this.QuantityRemaining)
 		{
 			var gate = this.OpenGates[Random.Range(0, this.OpenGates.Count)];
 			this.SpawnEnemy(gate.transform.position);
