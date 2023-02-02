@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3954187673793814333
+--- !u!1 &6496776658784024720
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8794127830767244208}
-  - component: {fileID: 23010809621789621}
+  - component: {fileID: 4475833290145841385}
+  - component: {fileID: 7717123325004079607}
   m_Layer: 0
-  m_Name: Gate Manager
+  m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8794127830767244208
+--- !u!4 &4475833290145841385
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3954187673793814333}
+  m_GameObject: {fileID: 6496776658784024720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,16 +32,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23010809621789621
+--- !u!114 &7717123325004079607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3954187673793814333}
+  m_GameObject: {fileID: 6496776658784024720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451b35e6bd0cb1642b096cf06d288fad, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fd054b1f846502498ed8d3532fa0032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gates: []
+  OpenGates: []
+  GateDelay:
+    Minimum: 0
+    Maximum: 0
+  _onStartGates:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEndGates:
+    m_PersistentCalls:
+      m_Calls: []
+  Prefab: {fileID: 8431216734871152996, guid: 51995b16dafdafb40861ff9ed6ecd4cb, type: 3}
+  _quantity: 0
+  EnemyDelay:
+    Minimum: 0
+    Maximum: 0
+  Target: {fileID: 0}
+  _onStartSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEndSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []

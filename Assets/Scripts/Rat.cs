@@ -9,7 +9,19 @@ public class Rat : MonoBehaviour
 	[Tooltip("The navmesh agent used to pathfind")]
 	public NavMeshAgent Agent;
 
-	public Transform Target = null;
+	private Transform _target = null;
+
+	public Transform Target
+	{
+		get => this._target;
+		set
+		{
+			var old = this.Target;
+			this._target = value;
+			if (old != value)
+				this.UpdateDestination();
+		}
+	}
 
 	[SerializeField]
 	[Tooltip("The layers this can steal from")]
@@ -33,12 +45,6 @@ public class Rat : MonoBehaviour
 
 	public UnityEvent OnSteal { get => this._onSteal; }
 
-	private void FindTargetSilo(bool overwrite = false)
-	{
-		if (overwrite || this.Target == null)
-			this.Target = Silo.Instance.transform;
-	}
-
 	private void UpdateDestination()
 	{
 		this.Agent.destination = this.Target.position;
@@ -59,12 +65,6 @@ public class Rat : MonoBehaviour
 	{
 		var object_mask = LayerMask.GetMask(LayerMask.LayerToName(game_object.layer));
 		return (object_mask & mask) > 0;
-	}
-
-	private void Start()
-	{
-		this.FindTargetSilo();
-		this.UpdateDestination();
 	}
 
 	private void OnCollisionEnter(Collision collision)

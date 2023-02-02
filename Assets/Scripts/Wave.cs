@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,76 +5,40 @@ using UnityEngine.Events;
 
 public class Wave : MonoBehaviour
 {
-	[Header("Delay")]
-	[SerializeField]
-	[Tooltip("Minimum time in seconds between spawning enemies")]
-	[Min(0)]
-	private float _minimumDelay;
-
-	public float MinimumDelay { get => this._minimumDelay; set => Mathf.Min(this.MaximumDelay, Mathf.Max(0, value)); }
-
-	[SerializeField]
-	[Tooltip("Maximum time in seconds between spawning enemies")]
-	[Min(0)]
-	private float _maximumDelay;
-
-	public float MaximumDelay { get => this._maximumDelay; set => Mathf.Max(this.MinimumDelay, Mathf.Max(0, value)); }
-
-	public float NextDelay { get => UnityEngine.Random.value * (this.MaximumDelay - this.MinimumDelay) + this.MinimumDelay; }
-
-	[Serializable]
-	public class EnemyGroup
-	{
-		[SerializeField]
-		[Tooltip("The prefab used to spawn this enemy type")]
-		public GameObject Prefab;
-
-		[SerializeField]
-		[Tooltip("The number of enemies this still needs to spawn")]
-		[Min(0)]
-		private int _quantity = 0;
-
-		public int Quantity { get => this._quantity; set => Mathf.Max(0, value); }
-	}
-
-	[SerializeField]
-	[Tooltip("The groups of enemies this will spawn in order")]
-	public List<EnemyGroup> EnemyGroups = new List<EnemyGroup>();
-
-	public int NextGroupIndex { get; private set; } = 0;
-
-	public EnemyGroup NextGroup
-	{
-		get
-		{
-			while (this.NextGroupIndex < this.EnemyGroups.Count && this.EnemyGroups[this.NextGroupIndex].Quantity < 1)
-				++this.NextGroupIndex;
-			return this.NextGroupIndex < this.EnemyGroups.Count ? this.EnemyGroups[this.NextGroupIndex] : null;
-		}
-	}
-
 	public enum Phase
 	{
 		Waiting,
-		Spawning,
+		ChangingGates,
+		SpawningEnemies,
 		Active,
 		Complete
 	}
+
 	private Phase _currentPhase = Phase.Waiting;
 
-	public Phase CurrentPhase 
-	{ 
-		get => this._currentPhase; 
+	public Phase CurrentPhase
+	{
+		get => this._currentPhase;
 		private set
 		{
+			var old = this.CurrentPhase;
 			this._currentPhase = value;
-			switch (this.CurrentPhase)
+			switch (old)
 			{
-				case Phase.Spawning:
-					this.OnStartSpawn.Invoke();
+				case Phase.ChangingGates:
+					this.OnEndGates.Invoke();
 					break;
-				case Phase.Active:
+				case Phase.SpawningEnemies:
 					this.OnEndSpawn.Invoke();
+					break;
+			}
+			switch (value)
+			{
+				case Phase.ChangingGates:
+					this.OnStartGates.Invoke();
+					break;
+				case Phase.SpawningEnemies:
+					this.OnStartSpawn.Invoke();
 					break;
 				case Phase.Complete:
 					this.OnComplete.Invoke();
@@ -83,6 +46,60 @@ public class Wave : MonoBehaviour
 			}
 		}
 	}
+
+	public void Begin()
+	{
+		this.StartCoroutine(this.GatePhase());
+	}
+
+	[Header("Gates")]
+	[SerializeField]
+	[Tooltip("The gates to open for this wave")]
+	public List<Gate> OpenGates;
+
+	[SerializeField]
+	[Tooltip("The delay between opening each gate")]
+	public RandomRange GateDelay;
+
+	[SerializeField]
+	[Tooltip("Invoked when gate transition phase starts")]
+	private UnityEvent _onStartGates = new UnityEvent();
+
+	public UnityEvent OnStartGates { get => this._onStartGates; }
+
+	[SerializeField]
+	[Tooltip("Invoked when gate transition phase ends")]
+	private UnityEvent _onEndGates = new UnityEvent();
+
+	public UnityEvent OnEndGates { get => this._onEndGates; }
+
+	private IEnumerator GatePhase()
+	{
+		this.CurrentPhase = Phase.ChangingGates;
+		foreach (var gate in Object.FindObjectsOfType<Gate>())
+		{
+			gate.IsOpen = this.OpenGates.Contains(gate);
+			yield return new WaitForSeconds(this.GateDelay.NextValue);
+		}
+		this.StartCoroutine(this.EnemyPhase());
+	}
+
+	[Header("Enemies")]
+	[SerializeField]
+	[Tooltip("The prefab used to spawn enemies")]
+	public GameObject Prefab;
+
+	[SerializeField]
+	[Tooltip("The number of enemies this still needs to spawn")]
+	[Min(0)]
+	private int _quantity = 0;
+
+	public int Quantity { get => this._quantity; set => Mathf.Max(0, value); }
+
+	[Tooltip("The time between spawning enemies")]
+	public RandomRange EnemyDelay;
+
+	public Transform Target;
 
 	[SerializeField]
 	[Tooltip("The event invoked once this starts spawning enemies")]
@@ -96,13 +113,26 @@ public class Wave : MonoBehaviour
 
 	public UnityEvent OnEndSpawn { get => this._onEndSpawn; }
 
-	[SerializeField]
-	[Tooltip("The event invoked once all active enemies are knocked out")]
-	private UnityEvent _onComplete = new UnityEvent();
+	private HashSet<GameObject> _activeEnemies = new HashSet<GameObject>();
 
-	public UnityEvent OnComplete { get => this._onComplete; }
+	public HashSet<GameObject> ActiveEnemies { get => this._activeEnemies; }
 
-	public HashSet<GameObject> ActiveEnemies { get; } = new HashSet<GameObject>();
+	private void SpawnEnemy(Vector3 location)
+	{
+		if (this.Quantity < -1)
+		{
+			Debug.LogWarning("Ran out of enemies to spawn");
+			return;
+		}
+		--this.Quantity;
+		Quaternion rotation = Quaternion.LookRotation(this.Target.position - location);
+		GameObject enemy = UnityEngine.Object.Instantiate(this.Prefab, location, rotation, this.transform);
+		this.ActiveEnemies.Add(enemy);
+		Rat rat = enemy.GetComponent<Rat>();
+		rat.Target = this.Target;
+		rat.OnKnockOut.AddListener(() => this.EnemyResolved(enemy));
+		rat.OnSteal.AddListener(() => this.EnemyResolved(enemy));
+	}
 
 	private void EnemyResolved(GameObject enemy)
 	{
@@ -111,25 +141,22 @@ public class Wave : MonoBehaviour
 			this.CurrentPhase = Phase.Complete;
 	}
 
-	private void SpawnEnemy(GameObject prefab, Vector3 location, Transform target)
+	private IEnumerator EnemyPhase()
 	{
-		Quaternion rotation = Quaternion.LookRotation(target.position - location);
-		GameObject enemy = UnityEngine.Object.Instantiate(prefab, location, rotation, this.transform);
-		this.ActiveEnemies.Add(enemy);
-		Rat rat = enemy.GetComponent<Rat>();
-		rat.OnKnockOut.AddListener(() => this.EnemyResolved(enemy));
-		rat.OnSteal.AddListener(() => this.EnemyResolved(enemy));
-	}
-
-	public IEnumerator Spawn(Transform target)
-	{
-		this.CurrentPhase = Phase.Spawning;
-		while (this.NextGroup != null)
+		this.CurrentPhase = Phase.SpawningEnemies;
+		while (this.Quantity > 0)
 		{
-			this.SpawnEnemy(this.NextGroup.Prefab, GateManager.Instance.NextOpenGate.transform.position, target);
-			--this.NextGroup.Quantity;
-			yield return new WaitForSeconds(this.NextDelay);
+			var gate = this.OpenGates[Random.Range(0, this.OpenGates.Count)];
+			this.SpawnEnemy(gate.transform.position);
+			yield return new WaitForSeconds(this.EnemyDelay.NextValue);
 		}
 		this.CurrentPhase = Phase.Active;
 	}
+
+	[Header("Completion")]
+	[SerializeField]
+	[Tooltip("The event invoked once all active enemies are knocked out")]
+	private UnityEvent _onComplete = new UnityEvent();
+
+	public UnityEvent OnComplete { get => this._onComplete; }
 }
