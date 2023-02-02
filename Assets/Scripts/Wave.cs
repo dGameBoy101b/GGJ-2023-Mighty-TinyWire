@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -117,8 +116,7 @@ public class Wave : MonoBehaviour
 		Quaternion rotation = Quaternion.LookRotation(target.position - location);
 		GameObject enemy = UnityEngine.Object.Instantiate(prefab, location, rotation, this.transform);
 		this.ActiveEnemies.Add(enemy);
-		Persuer persuer = enemy.GetComponent<Persuer>();
-		persuer.Target = target;
+		Rat persuer = enemy.GetComponent<Rat>();
 		persuer.OnKnockOut.AddListener(() => this.EnemyDied(enemy));
 	}
 
