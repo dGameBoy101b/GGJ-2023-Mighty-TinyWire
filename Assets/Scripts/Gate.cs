@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PerimeterGate : MonoBehaviour
+public class Gate : MonoBehaviour
 {
 	[SerializeField]
 	[Tooltip("The event invoked when this is opened")]

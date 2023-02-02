@@ -1,11 +1,12 @@
 using UnityEngine;
 
+[ExecuteAlways]
 public class GateOpener : MonoBehaviour
 {
 	[Tooltip("The gate to open")]
-	public PerimeterGate Gate;
+	public Gate Gate;
 
-	private PerimeterGate last_gate;
+	private Gate last_gate;
 
 	[Tooltip("Whether the gate should be opened")]
 	public bool ShouldBeOpen;

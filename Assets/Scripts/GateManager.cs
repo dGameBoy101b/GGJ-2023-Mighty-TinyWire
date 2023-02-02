@@ -7,13 +7,13 @@ public class GateManager : MonoBehaviour
 
 	[SerializeField]
 	[Tooltip("The gates enemies should spawn at")]
-	private List<PerimeterGate> _gates = new List<PerimeterGate>();
+	private List<Gate> _gates = new List<Gate>();
 
-	public IReadOnlyList<PerimeterGate> Gates { get { return this._gates; } }
+	public IReadOnlyList<Gate> Gates { get { return this._gates; } }
 
-	private List<PerimeterGate> OpenGates = new List<PerimeterGate>();
+	private List<Gate> OpenGates = new List<Gate>();
 
-	public PerimeterGate NextOpenGate
+	public Gate NextOpenGate
 	{
 		get
 		{
@@ -23,7 +23,7 @@ public class GateManager : MonoBehaviour
 
 	private void CreateGateListeners()
 	{
-		foreach (PerimeterGate gate in this.Gates)
+		foreach (Gate gate in this.Gates)
 			gate.OnOpen.AddListener(() => this.OpenGates.Add(gate));
 	}
 

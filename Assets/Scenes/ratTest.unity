@@ -378,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 7838062951289279925, guid: bbb4504323b48b84eb82ad0b872794d9,
         type: 3}
       propertyPath: m_Name
-      value: Perimeter Gate
+      value: Gate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbb4504323b48b84eb82ad0b872794d9, type: 3}
@@ -578,6 +578,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5726867344444946934, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
+        type: 3}
+      propertyPath: m_Speed
+      value: 0.94
+      objectReference: {fileID: 0}
     - target: {fileID: 6655584052484947166, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
         type: 3}
       propertyPath: m_RootOrder
@@ -586,7 +591,7 @@ PrefabInstance:
     - target: {fileID: 6655584052484947166, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9
+      value: -7.86
       objectReference: {fileID: 0}
     - target: {fileID: 6655584052484947166, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
         type: 3}
@@ -596,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 6655584052484947166, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.81
+      value: -7.83
       objectReference: {fileID: 0}
     - target: {fileID: 6655584052484947166, guid: 51995b16dafdafb40861ff9ed6ecd4cb,
         type: 3}
