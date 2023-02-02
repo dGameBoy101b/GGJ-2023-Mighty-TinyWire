@@ -104,7 +104,7 @@ public class Wave : MonoBehaviour
 
 	public HashSet<GameObject> ActiveEnemies { get; } = new HashSet<GameObject>();
 
-	private void EnemyDied(GameObject enemy)
+	private void EnemyResolved(GameObject enemy)
 	{
 		this.ActiveEnemies.Remove(enemy);
 		if (this.CurrentPhase == Phase.Active && this.ActiveEnemies.Count < 1)
@@ -116,8 +116,9 @@ public class Wave : MonoBehaviour
 		Quaternion rotation = Quaternion.LookRotation(target.position - location);
 		GameObject enemy = UnityEngine.Object.Instantiate(prefab, location, rotation, this.transform);
 		this.ActiveEnemies.Add(enemy);
-		Rat persuer = enemy.GetComponent<Rat>();
-		persuer.OnKnockOut.AddListener(() => this.EnemyDied(enemy));
+		Rat rat = enemy.GetComponent<Rat>();
+		rat.OnKnockOut.AddListener(() => this.EnemyResolved(enemy));
+		rat.OnSteal.AddListener(() => this.EnemyResolved(enemy));
 	}
 
 	public IEnumerator Spawn(Transform target)
