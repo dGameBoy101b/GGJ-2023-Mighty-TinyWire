@@ -13,6 +13,8 @@ public class PerimeterGate : MonoBehaviour
 
 	public void Open()
 	{
+		if (this.IsOpen)
+			return;
 		this.IsOpen = true;
 		this.OnOpen.Invoke();
 	}
