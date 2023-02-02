@@ -19,6 +19,8 @@ public class WaveManager : MonoBehaviour
 
 	public UnityEvent OnWaveComplete { get => this._onWaveComplete; }
 
+	public int WaveCount { get; private set; } = 0;
+
 	private void EnqueueWaves()
 	{
 		foreach (Wave wave in this._waves)
@@ -34,6 +36,7 @@ public class WaveManager : MonoBehaviour
 		}
 		var wave = this.Waves.Dequeue();
 		wave.Target = this.Target;
+		wave.OnComplete.AddListener(() => ++this.WaveCount);
 		wave.OnComplete.AddListener(() => this.OnWaveComplete.Invoke());
 		wave.Begin();
 	}
