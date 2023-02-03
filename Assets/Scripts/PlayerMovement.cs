@@ -83,8 +83,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private Vector2 aimAxis;
 
-	private Vector2 aimAxis_KM;
-
 	private Rigidbody _rb;
 
     private void Awake()
@@ -95,47 +93,42 @@ public class PlayerMovement : MonoBehaviour
 
     public void MyMoveInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
     {
-		moveAxis = context.ReadValue<Vector2>();
+		this.moveAxis = context.ReadValue<Vector2>();
     }
 
 	public void MyAimInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
     {
-		aimAxis = context.ReadValue<Vector2>();
-		if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+		this.aimAxis = context.ReadValue<Vector2>();
+		//Debug.Log("1: " + this.aimAxis);
+		//Debug.Log(_playerInput.currentControlScheme);
+		if (context.control.device is Pointer)
 		{
-			Ray ray = _cam.ScreenPointToRay(new Vector3(aimAxis.x, aimAxis.y, 0));
+			//Debug.Log("2: " + this.aimAxis);
+			Ray ray = _cam.ScreenPointToRay(new Vector3(this.aimAxis.x, this.aimAxis.y, 0));
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, screenRayLength, screenRayMask, _qti))
 			{
 				Vector3 dirToHit = hit.point - this.transform.position;
-				aimAxis = new Vector2(dirToHit.x, dirToHit.z);  
+				Vector3 rotDirToHit = Quaternion.AngleAxis(-45f, Vector3.up) * dirToHit;
+				this.aimAxis = new Vector2(rotDirToHit.x, rotDirToHit.z);
 			}
 		}
     }
 
     public void MySprintInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
     {
-		isSprinting = context.ReadValue<float>() > 0;
+		this.isSprinting = context.ReadValue<float>() > 0;
     }
 
-	public void Look() //Manages the look & orientation information of the player (based on camera data)
+	public void Look() //Manages the look information of the player
     {
-		//rotate based on mouse screen placement
 		Vector3 input_dir = new Vector3(this.aimAxis.x, 0, this.aimAxis.y).normalized;
-		Vector3 targ_dir = _playerInput.currentControlScheme == "Keyboard&Mouse" ? input_dir : Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
+		Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
 		if ((this.aimAxis.x < -lookThreshold || this.aimAxis.x > lookThreshold) && (this.aimAxis.y < -lookThreshold || this.aimAxis.y > lookThreshold))
 		{
 			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
 		}
     }
-
-		//OBSELETE LOOK DIRECTION CODE FOR SPINNING PLAYER BASED ON MOVEMENT DIRECTION
-		  /*Vector3 input_dir = new Vector3(this.moveAxis.x, 0, this.moveAxis.y).normalized;
-			Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
-			if (this.moveAxis.x != 0 || this.moveAxis.y != 0)
-			{
-				this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
-			}*/
 
     private void FixedUpdate()
     {
