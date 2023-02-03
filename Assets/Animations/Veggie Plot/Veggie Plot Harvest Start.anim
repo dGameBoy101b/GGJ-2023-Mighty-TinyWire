@@ -21,15 +21,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -0.06703223, y: -0.06032901, z: -0.06824548}
-        outSlope: {x: -0.06703223, y: -0.06032901, z: -0.06824548}
+        inSlope: {x: -0.06703223, y: 0, z: -0.06824548}
+        outSlope: {x: -0.06703223, y: 0, z: -0.06824548}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.16791044, y: 0.18656716, z: 0.19029851}
+        outWeight: {x: 0.16791044, y: 0.33333334, z: 0.19029851}
       - serializedVersion: 3
         time: 0.25
-        value: {x: -0.01, y: -0.01, z: -0.01}
+        value: {x: -0.01, y: 0, z: -0.01}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -38,7 +38,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.75
-        value: {x: 0.01, y: 0.01, z: 0.01}
+        value: {x: 0.01, y: 0, z: 0.01}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -48,11 +48,11 @@ AnimationClip:
       - serializedVersion: 3
         time: 1
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -0.06557499, y: -0.078891814, z: -0.0685557}
-        outSlope: {x: -0.06557499, y: -0.078891814, z: -0.0685557}
+        inSlope: {x: -0.06557499, y: 0, z: -0.0685557}
+        outSlope: {x: -0.06557499, y: 0, z: -0.0685557}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.17164183, y: 0.18656707, z: 0.16417909}
+        inWeight: {x: 0.17164183, y: 0.33333334, z: 0.16417909}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -140,52 +140,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Model/Full Model
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: -0.06032901
-        outSlope: -0.06032901
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.18656716
-      - serializedVersion: 3
-        time: 0.25
-        value: -0.01
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.75
-        value: 0.01
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: -0.078891814
-        outSlope: -0.078891814
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.18656707
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
     path: Model/Full Model
     classID: 4
     script: {fileID: 0}
