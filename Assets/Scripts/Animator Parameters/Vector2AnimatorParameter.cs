@@ -4,13 +4,13 @@ public class Vecto2AnimatorParameter : AnimatorParameter<Vector2>
 {
 	[SerializeField]
 	[Tooltip("The suffix used for the x component")]
-	public string XSuffix = '.x';
+	public string XSuffix = ".x";
 
 	public string XName {get => this.ParameterName + this.XSuffix; }
 
 	[SerializeField]
 	[Tooltip("The suffix used for the y component")]
-	public string YSuffix = '.y';
+	public string YSuffix = ".y";
 
 	public string YName {get => this.ParameterName + this.YSuffix; }
 
