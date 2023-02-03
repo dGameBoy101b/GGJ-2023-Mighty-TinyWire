@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Vecto2AnimatorParameter : AnimatorParameter<Vector2>
+public class Vector2AnimatorParameter : AnimatorParameter<Vector2>
 {
 	[SerializeField]
 	[Tooltip("The suffix used for the x component")]
