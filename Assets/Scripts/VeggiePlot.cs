@@ -73,14 +73,7 @@ public class VeggiePlot : MonoBehaviour
 		if (proportion != old)
 			this.OnHarvestWorkPrportionChange.Invoke(proportion);
 		if (proportion >= 1f)
-			this.CompleteHarvest();
-	}
-
-	private void CompleteHarvest()
-	{
-		this.HasBeenHarvested = true;
-		Object.Instantiate(this.LoosePrefab, this.transform.position + this.LooseOffset, Quaternion.identity);
-		this.OnHarvest.Invoke();
+			this.Harvest();
 	}
 
 	private void UpdateHarvest(float delta_time)
@@ -96,10 +89,21 @@ public class VeggiePlot : MonoBehaviour
 
 	public UnityEvent OnRegrow { get => this._onRegrow; }
 
+	public void Harvest()
+	{
+		if (this.HasBeenHarvested)
+			return;
+		this.HasBeenHarvested = true;
+		Object.Instantiate(this.LoosePrefab, this.transform.position + this.LooseOffset, Quaternion.identity);
+		this.OnHarvest.Invoke();
+	}
+
 	public void Regrow()
 	{
+		if (!this.HasBeenHarvested)
+			return;
 		this.HasBeenHarvested = false;
-		this.HarvestWork = 0f;
+		this.HarvestWork = 0f; 
 		this.OnRegrow.Invoke();
 	}
 

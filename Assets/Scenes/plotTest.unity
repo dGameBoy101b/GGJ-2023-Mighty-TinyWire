@@ -322,37 +322,38 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &1663220820
+--- !u!1 &1768424723 stripped
 GameObject:
+  m_CorrespondingSourceObject: {fileID: 9058779228650364372, guid: fea9b2df4fd295f43a12cb410c8d9677,
+    type: 3}
+  m_PrefabInstance: {fileID: 652959553926733894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1768424724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1676411862442265229, guid: fea9b2df4fd295f43a12cb410c8d9677,
+    type: 3}
+  m_PrefabInstance: {fileID: 652959553926733894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768424723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917ce09cd39633444b331224237c5dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1768424729
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1663220821}
-  m_Layer: 0
-  m_Name: Harvested Carrot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1663220821
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663220820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.062315702, y: -0.41807908, z: 0.14957356}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1768424723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54f3be03f149634a93017d9a21b2f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Plot: {fileID: 1768424724}
+  ShouldHarvest: 0
 --- !u!1001 &1826573298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -491,3 +492,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea9b2df4fd295f43a12cb410c8d9677, type: 3}
+--- !u!1001 &1830335157524447599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.326
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728186, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830335157035728187, guid: f1f33b1b0fe11a145983014323f6921f,
+        type: 3}
+      propertyPath: m_Name
+      value: Harvested Carrot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1f33b1b0fe11a145983014323f6921f, type: 3}

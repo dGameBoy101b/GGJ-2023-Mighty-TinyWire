@@ -209,11 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917ce09cd39633444b331224237c5dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoosePrefab: {fileID: 0}
-  LooseOffset: {x: 0, y: 0, z: 0}
-  _maximumHarvest: 0
-  HarvestDecay: 0
-  HarvestRate: 0
+  LoosePrefab: {fileID: 1830335157035728187, guid: f1f33b1b0fe11a145983014323f6921f,
+    type: 3}
+  LooseOffset: {x: 0, y: 0.3, z: 0}
+  _maximumHarvest: 1
+  HarvestDecay: 10
+  HarvestRate: 1
   _onHarvestWorkPrportionChange:
     m_PersistentCalls:
       m_Calls:
