@@ -97,27 +97,12 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Look() //Manages the look & orientation information of the player (based on camera data)
     {
-        Debug.Log(_playerInput.currentControlScheme + ": " + aimAxis);
-		
-		if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+		//rotate based on mouse screen placement
+		Vector3 input_dir = new Vector3(this.aimAxis.x, 0, this.aimAxis.y).normalized;
+		Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
+		if ((this.aimAxis.x < -0.1 || this.aimAxis.x > 0.1) && (this.aimAxis.y < -0.1 || this.aimAxis.y > 0.1))
 		{
-			//rotate based on mouse screen placement
-			//Vector3 input_dir = new Vector3(this.aimAxis_KM.x, 0, this.aimAxis_KM.y).normalized;
-			//Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
-			//if ((this.aimAxis_KM.x < -0.1 || this.aimAxis_KM.x > 0.1) && (this.aimAxis_KM.y < -0.1 || this.aimAxis_KM.y > 0.1))
-			//{
-			//	this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
-			//}
-		}
-		else if (_playerInput.currentControlScheme == "Gamepad")
-		{
-			//rotate based on Right Analog Stick
-			//Vector3 input_dir = new Vector3(this.aimAxis_GP.x, 0, this.aimAxis_GP.y).normalized;
-			//Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
-			//if ((this.aimAxis_GP.x < -0.1 || this.aimAxis_GP.x > 0.1) && (this.aimAxis_GP.y < -0.1 || this.aimAxis_GP.y > 0.1))
-			//{
-			//	this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
-			//}
+			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
 		}
     }
 
