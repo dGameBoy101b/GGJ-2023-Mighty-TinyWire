@@ -4,17 +4,17 @@ public class Vecto2AnimatorParameter : AnimatorParameter<Vector2>
 {
 	[SerializeField]
 	[Tooltip("The suffix used for the x component")]
-	public string XSuffix = '.x';
+	public string XSuffix = ".x";
 
 	public string XName {get => this.ParameterName + this.XSuffix; }
 
 	[SerializeField]
 	[Tooltip("The suffix used for the y component")]
-	public string YSuffix = '.y';
+	public string YSuffix = ".y";
 
 	public string YName {get => this.ParameterName + this.YSuffix; }
 
-	public Vector2 Value
+	public override Vector2 Value
 	{
 		get => new Vector2(this.Animator.GetFloat(this.XName), this.Animator.GetFloat(this.YName));
 		set
