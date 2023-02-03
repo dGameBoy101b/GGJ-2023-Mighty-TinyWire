@@ -243,8 +243,15 @@ MonoBehaviour:
   _sprintMod: 1.5
   _weaponUseMod: 0.5
   _playerInput: {fileID: 6607711557665919459}
+  _cam: {fileID: 6607711558921926659}
   isSucking: 0
   isShooting: 0
+  screenRayLength: Infinity
+  screenRayMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _qti: 0
+  lookThreshold: 0.05
 --- !u!1 &6607711557675934632
 GameObject:
   m_ObjectHideFlags: 0

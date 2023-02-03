@@ -57,11 +57,23 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerInput _playerInput;
 
+	public Camera _cam;
+
     [HideInInspector]
 	public bool isSucking;
 
 	[HideInInspector]
 	public bool isShooting;
+
+	public float screenRayLength = Mathf.Infinity;
+
+	public LayerMask screenRayMask;
+
+	[Tooltip("Whether or not the screen ray interacts wwith triggers")]
+	public QueryTriggerInteraction _qti;
+
+	[Tooltip("The range around zero in which the input is ignored for rotating the character")]
+	public float lookThreshold;
 
 	private bool isSprinting;
 
@@ -78,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         this._rb = this.GetComponent<Rigidbody>();
+		this._cam ??= Camera.main;
     }
 
     public void MyMoveInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
@@ -88,6 +101,16 @@ public class PlayerMovement : MonoBehaviour
 	public void MyAimInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
     {
 		aimAxis = context.ReadValue<Vector2>();
+		if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+		{
+			Ray ray = _cam.ScreenPointToRay(new Vector3(aimAxis.x, aimAxis.y, 0));
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, screenRayLength, screenRayMask, _qti))
+			{
+				Vector3 dirToHit = hit.point - this.transform.position;
+				aimAxis = new Vector2(dirToHit.x, dirToHit.z);  
+			}
+		}
     }
 
     public void MySprintInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
@@ -99,8 +122,8 @@ public class PlayerMovement : MonoBehaviour
     {
 		//rotate based on mouse screen placement
 		Vector3 input_dir = new Vector3(this.aimAxis.x, 0, this.aimAxis.y).normalized;
-		Vector3 targ_dir = Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
-		if ((this.aimAxis.x < -0.1 || this.aimAxis.x > 0.1) && (this.aimAxis.y < -0.1 || this.aimAxis.y > 0.1))
+		Vector3 targ_dir = _playerInput.currentControlScheme == "Keyboard&Mouse" ? input_dir : Quaternion.AngleAxis(45f, Vector3.up) * input_dir;
+		if ((this.aimAxis.x < -lookThreshold || this.aimAxis.x > lookThreshold) && (this.aimAxis.y < -lookThreshold || this.aimAxis.y > lookThreshold))
 		{
 			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(targ_dir, Vector3.up), Time.deltaTime * RotationSpeed);
 		}
