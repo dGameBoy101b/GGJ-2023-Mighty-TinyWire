@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class ObjectDestroyer : MonoBehaviour
 {
-	public new void Destroy(Object obj)
+	[SerializeField]
+	[Tooltip("The object destroyed if no object is given")]
+	public Object DefaultObject;
+
+	public new void Destroy(Object obj = null)
 	{
-		Object.Destroy(obj);
+		obj ??= this.DefaultObject;
+		if (obj != null)
+			Object.Destroy(obj);
 	}
 }

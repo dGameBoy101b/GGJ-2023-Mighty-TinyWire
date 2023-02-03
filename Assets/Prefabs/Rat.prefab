@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 7377368483816298583}
   - component: {fileID: 8249975139111025440}
   - component: {fileID: 3410960267415022544}
+  - component: {fileID: 3135026780757116651}
   m_Layer: 8
   m_Name: Rat
   m_TagString: Untagged
@@ -376,3 +377,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3135026780757116651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431216734871152996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962927e3d53292b408f3822454d398d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultObject: {fileID: 8431216734871152996}
