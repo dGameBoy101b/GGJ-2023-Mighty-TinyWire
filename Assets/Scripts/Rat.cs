@@ -61,21 +61,15 @@ public class Rat : MonoBehaviour
 		this.OnKnockOut.Invoke();
 	}
 
-	private bool IsObjectInMask(GameObject game_object, LayerMask mask)
-	{
-		var object_mask = LayerMask.GetMask(LayerMask.LayerToName(game_object.layer));
-		return (object_mask & mask) > 0;
-	}
-
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (this.IsObjectInMask(collision.gameObject, this.StealMask))
+		if (LayerMaskComparer.IsObjectInMask(collision.gameObject, this.StealMask))
 		{
 			var silo = collision.rigidbody?.gameObject.GetComponent<Silo>();
 			if (silo != null)
 				this.StealVeggie(silo);
 		}
-		if (this.IsObjectInMask(collision.gameObject, this.KnockoutMask))
+		if (LayerMaskComparer.IsObjectInMask(collision.gameObject, this.KnockoutMask))
 		{
 			this.KnockOut();
 		}
