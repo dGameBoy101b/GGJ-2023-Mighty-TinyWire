@@ -39,18 +39,7 @@ public class Vacuum : MonoBehaviour
 
 	[SerializeField]
 	[Tooltip("The coefficient applied to the distance of something being sucked")]
-	[Min(0)]
-	private float _distanceCoefficient;
-
-	public float DistanceCoefficient
-	{
-		get => this._distanceCoefficient;
-		set
-		{
-			value = Mathf.Max(0, value);
-			this._distanceCoefficient = value;
-		}
-	}
+	public float DistanceCoefficient;
 
 	public Vector3 GetAppliedForce(Vector3 position)
 	{
