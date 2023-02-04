@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Suckable : MonoBehaviour
+public class Suckable : MonoBehaviour
 {
 	[SerializeField]
 	[Tooltip("Invoked when this hits the end of the vac gun with the vacuum it hit")]
@@ -21,9 +21,18 @@ public abstract class Suckable : MonoBehaviour
 
 	public UnityEvent<Vacuum> OnHitEnd { get => this._onHitEnd; }
 
-	public abstract void StartSuck(Vacuum origin);
+	public virtual void StartSuck(Vacuum origin)
+	{
+		this.OnStartSuck.Invoke(origin);
+	}
 
-	public abstract void StopSuck(Vacuum origin);
+	public virtual void StopSuck(Vacuum origin)
+	{
+		this.OnEndSuck.Invoke(origin);
+	}
 
-	public abstract void HitEnd(Vacuum origin);
+	public virtual void HitEnd(Vacuum origin)
+	{
+		this.OnHitEnd.Invoke(origin);
+	}
 }
