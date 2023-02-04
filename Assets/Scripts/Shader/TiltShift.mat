@@ -53,7 +53,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlurDistance: 0.5
-    - _BlurIntensity: 3
+    - _BlurIntensity: 2
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
