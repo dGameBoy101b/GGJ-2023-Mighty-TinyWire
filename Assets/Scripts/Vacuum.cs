@@ -25,12 +25,12 @@ public class Vacuum : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        inRangeObjects.Add(col.GameObject.GetComponent<Rigidbody>());
+        inRangeObjects.Add(collider.gameObject.GetComponent<Rigidbody>());
     }
 
     void OnTriggerExit(Collider collider)
     {
-        inRangeObjects.Remove(col.GameObject.GetComponent<Rigidbody>());
+        inRangeObjects.Remove(collider.gameObject.GetComponent<Rigidbody>());
     }
 
     void OnCollisionEnter(Collision col)
