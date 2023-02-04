@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
     
     public void SpawnProjectile()
     {
-        if (!CanShoot || _ammoStorage.CarrotCount < 1)
+        if (!CanShoot || _ammoStorage.AmmoCount < 1)
         {
             return;
         }
@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
         Rigidbody _rb = _proj.GetComponent<Rigidbody>();
         _rb.AddForce((_proj.transform.forward * _force * _rb.mass) + _playerRigidbody.velocity, ForceMode.Impulse);
         _rb.AddTorque(Random.onUnitSphere * _torqueMagnitude.NextValue, ForceMode.Impulse);
-        _ammoStorage.CarrotCount--;
+        _ammoStorage.AmmoCount--;
         RestartCooldown();
     }
 
