@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
 
         GameObject _proj = Instantiate(_projectile, this.transform.position, this.transform.rotation);
         Rigidbody _rb = _proj.GetComponent<Rigidbody>();
-        _rb.AddForce((_proj.transform.forward * _force) + _playerRigidbody.velocity, ForceMode.Impulse);
+        _rb.AddForce((_proj.transform.forward * _force * _rb.mass) + _playerRigidbody.velocity, ForceMode.Impulse);
         _rb.AddTorque(Random.onUnitSphere * _torqueMagnitude.NextValue, ForceMode.Impulse);
         RestartCooldown();
     }
