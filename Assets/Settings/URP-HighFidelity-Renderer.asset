@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e4de3624fbc4b4ca2607430e796093, type: 3}
   m_Name: TiltShift
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     Event: 550
     blitMaterial: {fileID: 2100000, guid: e61ba67bf0c64034e945090bbfe5a38e, type: 2}
