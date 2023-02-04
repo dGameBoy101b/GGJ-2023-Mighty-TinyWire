@@ -1,11 +1,13 @@
 using UnityEngine;
 
 [System.Serializable]
-public class RandomRange
+public class RandomRange : IRandomValue<float>
 {
+	[SerializeField]
 	[Tooltip("The minimum value")]
 	public float Minimum;
 
+	[SerializeField]
 	[Tooltip("The maximum value")]
 	public float Maximum;
 
