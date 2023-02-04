@@ -21,9 +21,42 @@ public class Vacuum : MonoBehaviour
 		}
 	}
 
+	[Header("Suction Force")]
 	[SerializeField]
 	[Tooltip("The force at which this sucks")]
-	public float Force;
+	[Min(0)]
+	private float _baseForce;
+
+	public float BaseForce
+	{
+		get => this._baseForce;
+		set
+		{
+			value = Mathf.Max(0, value);
+			this._baseForce = value;
+		}
+	}
+
+	[SerializeField]
+	[Tooltip("The coefficient applied to the distance of something being sucked")]
+	[Min(0)]
+	private float _distanceCoefficient;
+
+	public float DistanceCoefficient
+	{
+		get => this._distanceCoefficient;
+		set
+		{
+			value = Mathf.Max(0, value);
+			this._distanceCoefficient = value;
+		}
+	}
+
+	public Vector3 GetAppliedForce(Vector3 position)
+	{
+		var direction = position - this.transform.position;
+		return direction.normalized * (this.BaseForce + this.DistanceCoefficient * direction.magnitude);
+	}
 
 	private bool _shouldSuck = false;
 
@@ -74,6 +107,7 @@ public class Vacuum : MonoBehaviour
 
 	public bool IsSucking { get => this.ShouldSuck && this.AmmoStorage.IsJammed; }
 
+	[Header("Suction Events")]
 	[SerializeField]
 	[Tooltip("Invoked when this starts sucking")]
 	private UnityEvent _onStartSuck = new UnityEvent();
