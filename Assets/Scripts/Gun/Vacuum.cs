@@ -43,7 +43,7 @@ public class Vacuum : MonoBehaviour
 
 	public Vector3 GetAppliedForce(Vector3 position)
 	{
-		var direction = position - this.transform.position;
+		var direction = this.transform.position - position;
 		return direction.normalized * (this.BaseForce + this.DistanceCoefficient * direction.magnitude);
 	}
 
@@ -60,9 +60,9 @@ public class Vacuum : MonoBehaviour
 			if (this.AmmoStorage != null && this.AmmoStorage.IsJammed)
 				return;
 			if (this.IsSucking)
-				this.OnStartSuck.Invoke();
+				this.StartSuck();
 			else
-				this.OnEndSuck.Invoke();
+				this.StopSuck();
 		}
 	}
 
@@ -85,16 +85,16 @@ public class Vacuum : MonoBehaviour
 	private void OnJam()
 	{
 		if (this.ShouldSuck)
-			this.OnEndSuck.Invoke();
+			this.StopSuck();
 	}
 
 	private void OnUnjam()
 	{
 		if (this.IsSucking)
-			this.OnStartSuck.Invoke();
+			this.StartSuck();
 	}
 
-	public bool IsSucking { get => this.ShouldSuck && this.AmmoStorage.IsJammed; }
+	public bool IsSucking { get => this.ShouldSuck && !this.AmmoStorage.IsJammed; }
 
 	[Header("Suction Events")]
 	[SerializeField]
@@ -118,6 +118,19 @@ public class Vacuum : MonoBehaviour
 		this.ShouldSuck = context.ReadValue<float>() > 0;
 	}
 
+	private void StartSuck()
+	{
+		this.OnStartSuck.Invoke();
+	}
+
+	private void StopSuck()
+	{
+		var objects = new HashSet<Suckable>(this.InRangeObjects);
+		foreach (var target in objects)
+			this.StopSucking(target);
+		this.OnEndSuck.Invoke();
+	}
+
 	private void StartSucking(Suckable suckable)
 	{
 		if (!this.IsSucking)
@@ -139,16 +152,16 @@ public class Vacuum : MonoBehaviour
 
 	void OnTriggerEnter(Collider collider)
 	{
-		this.StartSucking(collider.GetComponent<Suckable>());
+		this.StartSucking(collider.attachedRigidbody?.GetComponent<Suckable>());
 	}
 
 	void OnTriggerExit(Collider collider)
 	{
-		this.StopSucking(collider.GetComponent<Suckable>());
+		this.StopSucking(collider.attachedRigidbody?.GetComponent<Suckable>());
 	}
 
 	void OnCollisionEnter(Collision col)
 	{
-		this.HitSuckable(col.gameObject.GetComponent<Suckable>());
+		this.HitSuckable(col.rigidbody?.GetComponent<Suckable>());
 	}
 }

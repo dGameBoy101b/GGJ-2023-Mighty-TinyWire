@@ -440,6 +440,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 682538311284246893, guid: 5ec7f7c403d18db45b113183b62c7f55,
+        type: 3}
+      propertyPath: _ammoCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408630171519962822, guid: 5ec7f7c403d18db45b113183b62c7f55,
+        type: 3}
+      propertyPath: _baseForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408630171519962822, guid: 5ec7f7c403d18db45b113183b62c7f55,
+        type: 3}
+      propertyPath: DistanceCoefficient
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6607711559439786608, guid: 5ec7f7c403d18db45b113183b62c7f55,
         type: 3}
       propertyPath: m_Name
