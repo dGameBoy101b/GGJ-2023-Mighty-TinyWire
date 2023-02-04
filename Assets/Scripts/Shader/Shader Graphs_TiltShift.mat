@@ -52,12 +52,12 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlurDistance: 0.25
+    - _BlurDistance: 0.5
     - _BlurIntensity: 3
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FullscreenIntensity: 0.4
+    - _FullscreenIntensity: 0.35
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
