@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class RandomVector3
+public class RandomVector3 : IRandomValue<Vector3>
 {
 	[SerializeField]
 	[Tooltip("The magnitude used")]
