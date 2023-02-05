@@ -9428,6 +9428,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 939284223}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 2084156891}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1169214680}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 26143532}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 1824434643037620494, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 1094648299}
     - target: {fileID: 1980525736416048603, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -9448,6 +9493,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 130
       objectReference: {fileID: 0}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1214229443}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2084156891}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 1781496540}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1094648299}
+    - target: {fileID: 2094587669835585576, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 939284223}
     - target: {fileID: 2355439378104033408, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -9673,6 +9763,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 140
       objectReference: {fileID: 0}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 26143532}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 939284223}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1214229443}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1988813983}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 457822658}
+    - target: {fileID: 3454724049187983789, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2084156891}
     - target: {fileID: 3458234998499774759, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -9708,6 +9843,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 145
       objectReference: {fileID: 0}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 2084156891}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 26143532}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1988813983}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1214229443}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 3631992264893561692, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 1094648299}
     - target: {fileID: 3670637707998663246, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -9943,6 +10123,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 939284223}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1214229443}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1094648299}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1781496540}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 2084156891}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 4951004046566751051, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 1988813983}
     - target: {fileID: 5367147870985001584, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -10123,6 +10348,51 @@ PrefabInstance:
       propertyPath: _quantity
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1094648299}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1781496540}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 457822658}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1169214680}
+    - target: {fileID: 7986650990195998900, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 939284223}
     - target: {fileID: 8458343731727448339, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
@@ -10183,6 +10453,71 @@ PrefabInstance:
       propertyPath: _quantity
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[0]
+      value: 
+      objectReference: {fileID: 26143532}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1640742123}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[2]
+      value: 
+      objectReference: {fileID: 939284223}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[3]
+      value: 
+      objectReference: {fileID: 1214229443}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[4]
+      value: 
+      objectReference: {fileID: 457822658}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[5]
+      value: 
+      objectReference: {fileID: 59424103}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1563820248}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2084156891}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[8]
+      value: 
+      objectReference: {fileID: 1169214680}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1781496540}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[10]
+      value: 
+      objectReference: {fileID: 1988813983}
+    - target: {fileID: 8975451900132639516, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
+        type: 3}
+      propertyPath: OpenGates.Array.data[11]
+      value: 
+      objectReference: {fileID: 1094648299}
     - target: {fileID: 9199304711489810341, guid: dbb6f7ec21765d94ca6fe3aa9d3c9c21,
         type: 3}
       propertyPath: _quantity
