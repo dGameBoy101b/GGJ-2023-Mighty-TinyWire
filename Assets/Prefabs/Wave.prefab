@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenGates: []
   GateDelay:
-    Minimum: 0
-    Maximum: 0
+    Minimum: 0.05
+    Maximum: 0.1
   _onStartGates:
     m_PersistentCalls:
       m_Calls: []
@@ -57,8 +57,8 @@ MonoBehaviour:
   Prefab: {fileID: 8431216734871152996, guid: 51995b16dafdafb40861ff9ed6ecd4cb, type: 3}
   _quantity: 0
   EnemyDelay:
-    Minimum: 0
-    Maximum: 0
+    Minimum: 0.1
+    Maximum: 0.5
   Target: {fileID: 0}
   _onStartSpawn:
     m_PersistentCalls:
