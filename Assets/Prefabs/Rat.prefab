@@ -89,9 +89,10 @@ GameObject:
   - component: {fileID: 5726867344444946934}
   - component: {fileID: 7377368483816298583}
   - component: {fileID: 8249975139111025440}
-  - component: {fileID: 3410960267415022544}
-  - component: {fileID: 3135026780757116651}
   - component: {fileID: 2678983175320957318}
+  - component: {fileID: 3135026780757116651}
+  - component: {fileID: 3410960267415022544}
+  - component: {fileID: 4178211633084367669}
   m_Layer: 8
   m_Name: Rat
   m_TagString: Untagged
@@ -150,7 +151,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -167,9 +168,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Agent: {fileID: 5726867344444946934}
+  _target: {fileID: 0}
   StealMask:
     serializedVersion: 2
     m_Bits: 512
+  _onSteal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1911649196286780567}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5726867344444946934}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7377368483816298583}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3410960267415022544}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: steal
+          m_BoolArgument: 1
+        m_CallState: 2
   KnockoutMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -224,21 +277,12 @@ MonoBehaviour:
           m_StringArgument: knockout
           m_BoolArgument: 1
         m_CallState: 2
-  _onSteal:
+  RecoveryMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _onStunned:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1911649196286780567}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5726867344444946934}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -261,20 +305,94 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3410960267415022544}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 4178211633084367669}
+        m_TargetAssemblyTypeName: BooleanAnimatorParameter, Assembly-CSharp
+        m_MethodName: set_Value
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: steal
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _onRecovered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7377368483816298583}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5726867344444946934}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4178211633084367669}
+        m_TargetAssemblyTypeName: BooleanAnimatorParameter, Assembly-CSharp
+        m_MethodName: set_Value
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2678983175320957318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431216734871152996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79692e59bf314a143baae422dc755331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onStartSuck:
+    m_PersistentCalls:
+      m_Calls: []
+  _onEndSuck:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHitEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  Rat: {fileID: 8249975139111025440}
+--- !u!114 &3135026780757116651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431216734871152996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962927e3d53292b408f3822454d398d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultObject: {fileID: 8431216734871152996}
 --- !u!95 &3410960267415022544
 Animator:
   serializedVersion: 5
@@ -295,7 +413,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &3135026780757116651
+--- !u!114 &4178211633084367669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,22 +422,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8431216734871152996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962927e3d53292b408f3822454d398d4, type: 3}
+  m_Script: {fileID: 11500000, guid: a7c8f46891f97f241bd947b483b4cf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultObject: {fileID: 8431216734871152996}
---- !u!114 &2678983175320957318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431216734871152996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79692e59bf314a143baae422dc755331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Animator: {fileID: 3410960267415022544}
+  ParameterName: is stunned
 --- !u!1001 &8705664964851711882
 PrefabInstance:
   m_ObjectHideFlags: 0
