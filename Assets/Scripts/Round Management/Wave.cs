@@ -5,6 +5,12 @@ using UnityEngine.Events;
 
 public class Wave : MonoBehaviour
 {
+	[SerializeField]
+	[Tooltip("Invoked when this wave is started")]
+	private UnityEvent _onStart = new UnityEvent();
+
+	public UnityEvent OnStart { get => this._onStart; }
+
 	public enum Phase
 	{
 		Waiting,
