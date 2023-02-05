@@ -106,23 +106,30 @@ public class Rat : MonoBehaviour
 
 	private void UpdateDestination()
 	{
+		if (this.IsKnockedOut)
+			return;
 		this.Agent.destination = this.Target == null ? this.transform.position : this.Target.position;
 	}
 
 	public void StealVeggie(Silo silo)
 	{
+		if (this.IsKnockedOut)
+			return;
 		--silo.CarrotsStored;
 		this.OnSteal.Invoke();
 	}
 
 	public void KnockOut()
 	{
+		if (this.IsKnockedOut)
+			return;
+		this.IsKnockedOut = true;
 		this.OnKnockOut.Invoke();
 	}
 
 	public void Stun()
 	{
-		if (this.IsStunned)
+		if (this.IsStunned || this.IsKnockedOut)
 			return;
 		this.IsStunned = true;
 		this.ShouldRecover = false;
@@ -131,7 +138,7 @@ public class Rat : MonoBehaviour
 
 	public void Recover()
 	{
-		if (!this.IsStunned)
+		if (!this.IsStunned || this.IsKnockedOut)
 			return;
 		this.IsStunned = false;
 		this.Body.velocity = Vector3.zero;

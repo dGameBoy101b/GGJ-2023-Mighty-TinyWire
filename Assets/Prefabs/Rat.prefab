@@ -225,7 +225,7 @@ MonoBehaviour:
         m_CallState: 2
   KnockoutMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 36864
   _onKnockOut:
     m_PersistentCalls:
       m_Calls:
