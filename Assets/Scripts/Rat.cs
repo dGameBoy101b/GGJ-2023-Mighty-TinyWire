@@ -136,6 +136,8 @@ public class Rat : MonoBehaviour
 		this.IsStunned = false;
 		this.Body.velocity = Vector3.zero;
 		this.Body.angularVelocity = Vector3.zero;
+		this.Body.transform.rotation = Quaternion.identity;
+		this.Agent.enabled = true;
 		this.UpdateDestination();
 		this.OnRecovered.Invoke();
 	}
