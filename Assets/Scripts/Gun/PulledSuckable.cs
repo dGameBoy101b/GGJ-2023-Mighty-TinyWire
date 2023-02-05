@@ -23,20 +23,20 @@ public abstract class PulledSuckable : Suckable
 		base.StopSuck(origin);
 	}
 
-	protected void PullTowardsVacuum()
+	protected void PullTowardsVacuum(float delta_time)
 	{
 		if (!this.IsBeingSucked)
 			return;
-		var applied_force = this.Vacuum.GetAppliedForce(this.Body.position);
-		var counter_inertia_force = -this.Body.velocity;
-		var counter_gravity_force = this.Body.useGravity ? -Physics.gravity : Vector3.zero;
-		var force = applied_force + counter_inertia_force + counter_gravity_force;
-		this.Body.AddForce(force, ForceMode.Force);
+		var applied_force = this.Vacuum.GetAppliedForce(this.Body.position) * delta_time;
+		var counter_inertia = -this.Body.velocity;
+		var counter_gravity = (this.Body.useGravity ? -Physics.gravity : Vector3.zero) * delta_time;
+		var force = applied_force + counter_inertia + counter_gravity;
+		this.Body.AddForce(force, ForceMode.Impulse);
 	}
 
 	protected virtual void FixedUpdate()
 	{
-		this.PullTowardsVacuum();
+		this.PullTowardsVacuum(Time.fixedDeltaTime);
 	}
 
 	protected virtual void Awake()
