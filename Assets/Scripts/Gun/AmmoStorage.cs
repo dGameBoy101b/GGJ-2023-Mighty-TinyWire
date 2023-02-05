@@ -38,6 +38,8 @@ public class AmmoStorage : MonoBehaviour
 		get => this._isJammed;
 		set
 		{
+			if (value == this.IsJammed)
+				return;
 			this._isJammed = value;
 			if (value)
 				this.OnJam.Invoke();

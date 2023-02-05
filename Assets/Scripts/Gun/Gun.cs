@@ -3,58 +3,112 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject _projectile;
+	[SerializeField]
+	[Tooltip("The prefab used to shoot while not jammed")]
+	public GameObject DefaultProjectile;
 
-    public Rigidbody _playerRigidbody;
+	[SerializeField]
+	[Tooltip("The prefab used to shoot while jammed")]
+	public GameObject JammedProjectile;
 
-    public AmmoStorage _ammoStorage;
+	public Rigidbody Body;
 
-    public float _force;
+	[SerializeField]
+	[Tooltip("The ammo storage used to shoot")]
+	private AmmoStorage _ammoStorage;
 
-    public RandomRange _torqueMagnitude;
+	public AmmoStorage AmmoStorage
+	{
+		get => this._ammoStorage;
+		set
+		{
+			this.RemoveJamListeners();
+			this._ammoStorage = value;
+			this.AddJamListeners();
+		}
+	}
 
-    public float cooldownTime;
+	[SerializeField]
+	[Tooltip("The impulse applied to projectiles")]
+	public float Impulse;
 
-    private bool isShooting = false;
+	[SerializeField]
+	[Tooltip("The torque applied to projectiles")]
+	public RandomVector3 Torque;
 
-    private bool CanShoot = true;
+	[SerializeField]
+	[Tooltip("The delay between shots when this is not jammed")]
+	public float DefaultCooldownTime;
 
-    public void MyFireInput(InputAction.CallbackContext context) //Control scheme input values (is changed when the state of the input is change) (e.g. when w is pressed and when it is lifted)
-    {
-		isShooting = context.ReadValue<float>() > 0;
-    }
+	[SerializeField]
+	[Tooltip("The delay between this jamming and shooting again")]
+	public float JammedCooldownTime;
 
-    public void FixedUpdate()
-    {
-        if (isShooting)
-        {
-            SpawnProjectile();
-        }
-    }
-    
-    public void SpawnProjectile()
-    {
-        if (!CanShoot || _ammoStorage.AmmoCount < 1)
-        {
-            return;
-        }
+	public bool IsShooting { get; private set; } = false;
 
-        GameObject _proj = Instantiate(_projectile, this.transform.position, this.transform.rotation);
-        Rigidbody _rb = _proj.GetComponent<Rigidbody>();
-        _rb.AddForce((_proj.transform.forward * _force * _rb.mass) + _playerRigidbody.velocity, ForceMode.Impulse);
-        _rb.AddTorque(Random.onUnitSphere * _torqueMagnitude.NextValue, ForceMode.Impulse);
-        _ammoStorage.AmmoCount--;
-        RestartCooldown();
-    }
+	public bool CanShoot { get; private set; } = true;
 
-    public void RestartCooldown()
-    {
-        CanShoot = false;
-        Invoke("EndCooldown", cooldownTime);
-    }
+	public void MyFireInput(InputAction.CallbackContext context)
+	{
+		this.IsShooting = context.ReadValue<float>() > 0;
+	}
 
-    public void EndCooldown()
-    {
-        CanShoot = true;
-    }
+	private void AddJamListeners()
+	{
+		if (this.AmmoStorage == null)
+			return;
+		this.AmmoStorage.OnJam.AddListener(this.OnJam);
+	}
+
+	private void RemoveJamListeners()
+	{
+		if (this.AmmoStorage == null)
+			return;
+		this.AmmoStorage.OnJam.RemoveListener(this.OnJam);
+	}
+
+	private void OnJam()
+	{
+		this.RestartCooldown(this.JammedCooldownTime);
+	}
+	
+	private void SpawnProjectile()
+	{
+		if (!this.CanShoot || (!this.AmmoStorage.IsJammed && this.AmmoStorage.AmmoCount < 1))
+			return;
+		GameObject projectile_prefab = this.AmmoStorage.IsJammed ? this.JammedProjectile : this.DefaultProjectile;
+		if (this.AmmoStorage.IsJammed)
+			this.AmmoStorage.IsJammed = false;
+		else
+			--this.AmmoStorage.AmmoCount;
+		GameObject projectile = Instantiate(projectile_prefab, this.transform.position, this.transform.rotation);
+		Rigidbody projectile_body = projectile.GetComponent<Rigidbody>();
+		projectile_body.AddForce((projectile.transform.forward * this.Impulse) + Body.velocity, ForceMode.Impulse);
+		projectile_body.AddTorque(this.Torque.NextValue, ForceMode.Impulse);
+		this.RestartCooldown(this.DefaultCooldownTime);
+	}
+
+	public void RestartCooldown(float cooldown)
+	{
+		this.CanShoot = false;
+		this.Invoke("EndCooldown", cooldown);
+	}
+
+	private void EndCooldown()
+	{
+		this.CanShoot = true;
+	}
+
+	private void FixedUpdate()
+	{
+		if (this.IsShooting)
+		{
+			this.SpawnProjectile();
+		}
+	}
+
+	private void Awake()
+	{
+		this.AddJamListeners();
+	}
 }

@@ -84,13 +84,12 @@ public class Vacuum : MonoBehaviour
 
 	private void OnJam()
 	{
-		if (this.ShouldSuck)
-			this.StopSuck();
+		this.StopSuck();
 	}
 
 	private void OnUnjam()
 	{
-		if (this.IsSucking)
+		if (this.ShouldSuck)
 			this.StartSuck();
 	}
 
@@ -163,5 +162,10 @@ public class Vacuum : MonoBehaviour
 	void OnCollisionEnter(Collision col)
 	{
 		this.HitSuckable(col.rigidbody?.GetComponent<Suckable>());
+	}
+
+	private void Awake()
+	{
+		this.AddJamListeners();
 	}
 }
