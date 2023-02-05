@@ -106,7 +106,7 @@ public class Rat : MonoBehaviour
 
 	private void UpdateDestination()
 	{
-		this.Agent.destination = this.Target?.position ?? this.transform.position;
+		this.Agent.destination = this.Target == null ? this.transform.position : this.Target.position;
 	}
 
 	public void StealVeggie(Silo silo)
