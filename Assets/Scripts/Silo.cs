@@ -28,6 +28,7 @@ public class Silo : MonoBehaviour
 	private void Awake()
 	{
 		this.CheckOnlyInstance();
+		this.OnCarrotsChanged.Invoke(this.CarrotsStored);
 	}
 
 	private void OnDestroy()
