@@ -2,31 +2,31 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Workspace" id="{741f9ba1-701a-46e3-b8d6-a3c8aed701fc}">
 		<relationship name="masterEventFolder">
-			<destination>{30bb9efb-4212-4ed3-b9ca-63b6f3a07b4a}</destination>
+			<destination>{0f3f2e44-9f80-46c4-90f3-9ca70865135f}</destination>
 		</relationship>
 		<relationship name="masterTagFolder">
-			<destination>{02dc2b05-ab4f-4f5f-95f4-2c9c1f16fc75}</destination>
+			<destination>{3fc82c82-b3de-4d9d-adff-61d9fbd8cd57}</destination>
 		</relationship>
 		<relationship name="masterEffectPresetFolder">
-			<destination>{5535e10b-933c-4cf2-8e7b-ffa058861b0d}</destination>
+			<destination>{af3cf544-8a9f-42bf-9d37-d8b6e441a570}</destination>
 		</relationship>
 		<relationship name="masterParameterPresetFolder">
-			<destination>{7d5f5604-881a-4cb6-adef-dd5b6ac1cf95}</destination>
+			<destination>{22e99c48-b223-4199-b805-2d034f453cd7}</destination>
 		</relationship>
 		<relationship name="masterBankFolder">
-			<destination>{4f22de4d-095c-4682-a536-bdfa9fe144a1}</destination>
+			<destination>{453e4e28-b1d2-4703-8581-c44fb2dc5cbd}</destination>
 		</relationship>
 		<relationship name="masterSandboxFolder">
-			<destination>{8cacb794-d71d-492e-a43b-dc1f54a0b1f1}</destination>
+			<destination>{79dbb4ff-4a52-4366-b827-fac9a2f25ed5}</destination>
 		</relationship>
 		<relationship name="masterAssetFolder">
-			<destination>{6ddd1987-0920-482a-90b6-d6e19affbd78}</destination>
+			<destination>{acfaf56e-6d54-4eeb-989a-b2b6d288796c}</destination>
 		</relationship>
 		<relationship name="mixer">
-			<destination>{0094594d-18a6-4182-b47a-7e3aa52444dd}</destination>
+			<destination>{5ce72eda-4808-4e52-b69b-6c1006d70560}</destination>
 		</relationship>
 		<relationship name="profilerSessionFolder">
-			<destination>{9a6242a3-90af-466d-a9a8-33b5a84e4fd4}</destination>
+			<destination>{aeca5b5f-6003-4304-8e77-b5a7aac6348f}</destination>
 		</relationship>
 		<relationship name="platforms">
 			<destination>{f4d375e5-90da-42cf-a9b2-59bba8eb08a8}</destination>
