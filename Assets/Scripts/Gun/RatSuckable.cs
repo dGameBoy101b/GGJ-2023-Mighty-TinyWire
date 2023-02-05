@@ -20,7 +20,10 @@ public class RatSuckable : PulledSuckable
 
 	public override void HitEnd(Vacuum origin)
 	{
-		//throw new System.NotImplementedException();
+		if (origin.AmmoStorage.IsJammed)
+			return;
+		origin.AmmoStorage.IsJammed = true;
+		Object.Destroy(this);
 		base.HitEnd(origin);
 	}
 }
