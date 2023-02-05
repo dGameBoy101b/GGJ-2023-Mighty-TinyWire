@@ -59,4 +59,9 @@ public class AmmoStorage : MonoBehaviour
 	private UnityEvent _onUnjam = new UnityEvent();
 
 	public UnityEvent OnUnjam { get => this._onUnjam; }
+
+	private void Awake()
+	{
+		this.OnCountChange.Invoke(this.AmmoCount);
+	}
 }
