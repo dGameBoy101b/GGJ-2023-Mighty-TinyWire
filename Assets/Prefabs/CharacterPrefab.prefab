@@ -50,12 +50,12 @@ MonoBehaviour:
     type: 3}
   Body: {fileID: 3049507042322100678}
   _ammoStorage: {fileID: 682538311284246893}
-  Impulse: 10
+  Impulse: 50
   Torque:
     _magnitude:
       Minimum: 1
       Maximum: 2
-  DefaultCooldownTime: 0.1
+  DefaultCooldownTime: 0.2
   JammedCooldownTime: 1
 --- !u!1 &1277874415173839496
 GameObject:
