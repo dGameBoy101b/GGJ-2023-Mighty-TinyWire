@@ -8,7 +8,18 @@ public class Silo : MonoBehaviour
 	[Min(0)]
 	private int _carrotsStored = 0;
 
-	public int CarrotsStored { get => this._carrotsStored; set => this._carrotsStored = Mathf.Max(0, value); }
+	public int CarrotsStored 
+	{ 
+		get => this._carrotsStored;
+		set
+		{
+			value = Mathf.Max(0, value);
+			if (value == this.CarrotsStored)
+				return;
+			this._carrotsStored = value;
+			this.OnCarrotsChanged.Invoke(value);
+		}
+	}
 
 	[SerializeField]
 	[Tooltip("The event invoked when the number of carrots stored in this silo changes")]
