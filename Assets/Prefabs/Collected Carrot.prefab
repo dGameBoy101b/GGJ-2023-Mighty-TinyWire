@@ -68,12 +68,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   Target: {fileID: 0}
-  InitialImpulse: {x: 0, y: 3, z: 0}
+  InitialImpulse: {x: 0, y: 10, z: 0}
   _initalTorque:
     _magnitude:
       Minimum: 0
       Maximum: 1
-  _speed: 5
+  _speed: 10
   _onCollect:
     m_PersistentCalls:
       m_Calls:
