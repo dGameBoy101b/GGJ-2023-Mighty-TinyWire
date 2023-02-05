@@ -44,15 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b908dbe8c9da94f4b92a1c02a7f23379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 1774236702362979174, guid: 001a5207f1aebf24385438cf53b45b26,
+  DefaultProjectile: {fileID: 1774236702362979174, guid: 001a5207f1aebf24385438cf53b45b26,
     type: 3}
-  _playerRigidbody: {fileID: 6607711557665919485}
+  JammedProjectile: {fileID: 3636954318820752348, guid: acbe7fe89a1ba8541bf07555770d49ce,
+    type: 3}
+  Body: {fileID: 3049507042322100678}
   _ammoStorage: {fileID: 682538311284246893}
-  _force: 25
-  _torqueMagnitude:
-    Minimum: 2.5
-    Maximum: 7.5
-  cooldownTime: 0.25
+  Impulse: 10
+  Torque:
+    _magnitude:
+      Minimum: 1
+      Maximum: 2
+  DefaultCooldownTime: 0.1
+  JammedCooldownTime: 1
 --- !u!1 &1277874415173839496
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoStorage: {fileID: 682538311284246893}
-  _baseForce: 5
-  DistanceCoefficient: -0.5
+  _baseForce: 1000
+  DistanceCoefficient: -100
   _onStartSuck:
     m_PersistentCalls:
       m_Calls:
