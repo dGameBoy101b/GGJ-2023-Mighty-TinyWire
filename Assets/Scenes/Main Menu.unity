@@ -12789,7 +12789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 961.4352, y: 0}
+  m_AnchoredPosition: {x: 961.4349, y: 0}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &976220294
@@ -12879,7 +12879,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -12929,7 +12929,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!114 &976220297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13713,7 +13713,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -13763,7 +13763,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!1 &1029648339
 GameObject:
   m_ObjectHideFlags: 0
@@ -14046,7 +14046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1480.6823, y: 0}
+  m_AnchoredPosition: {x: 1480.6818, y: 0}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037824313
@@ -14136,7 +14136,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -14186,7 +14186,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!114 &1037824316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20447,7 +20447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1233.0212, y: 0}
+  m_AnchoredPosition: {x: 1233.0209, y: 0}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456700697
@@ -20537,7 +20537,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -20587,7 +20587,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!114 &1456700700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26725,7 +26725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 688.5191, y: 0}
+  m_AnchoredPosition: {x: 688.5189, y: 0}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943480491
@@ -26815,7 +26815,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -26865,7 +26865,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!114 &1943480494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27625,7 +27625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 439.42303, y: 0}
+  m_AnchoredPosition: {x: 439.42297, y: 0}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999163147
@@ -27715,7 +27715,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -28892,7 +28892,7 @@ MonoBehaviour:
   useCustomContent: 0
   useCustomIconSize: 0
   useCustomTextSize: 0
-  checkForDoubleClick: 1
+  checkForDoubleClick: 0
   enableButtonSounds: 0
   useHoverSound: 1
   useClickSound: 1
@@ -28942,7 +28942,7 @@ MonoBehaviour:
   renderOnTop: 1
   centered: 0
   isPreset: 1
-  latestTabIndex: 0
+  latestTabIndex: 2
 --- !u!114 &2132757461
 MonoBehaviour:
   m_ObjectHideFlags: 0
